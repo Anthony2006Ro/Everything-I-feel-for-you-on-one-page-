@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Everything I feel for you, on one page💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fff0f6, #ffe6f2);
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #ff5ca8, #ff85c1);
+      color: white;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .presentacion {
+      text-align: center;
+    }
+
+    .presentacion img {
+      width: auto;
+      max-width: 280px;
+      height: auto;
+      margin: 25px 0;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease;
+      border: 6px solid transparent;
+      background: linear-gradient(135deg, #ffd1e8, #ff1493);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+    }
+    .presentacion img:hover {
+      transform: scale(1.05);
+    }
+
+    .frases {
+      text-align: center;
+    }
+
+    .frase-card {
+      background: white;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      font-size: 1.2rem;
+      max-width: 650px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .frase-card:hover {
+      transform: translateY(-5px);
+      background: #fff5fa;
+    }
+
+    .pregunta {
+      text-align: center;
+    }
+
+    .pregunta h2 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      color: #ff1493;
+    }
+
+    .botones {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      background: #ff69b4;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #ff1493;
+      transform: scale(1.05);
+    }
+
+    .btn.secundario {
+      background: #ffd1e8;
+      color: #333;
+    }
+    .btn.secundario:hover {
+      background: #ffb6d6;
+    }
+
+    .galeria {
+      text-align: center;
+    }
+
+    .imagenes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .imagenes img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+      border: 6px solid transparent;
+      background: linear-gradient(135deg, #ffd1e8, #ff1493);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+    }
+    .imagenes img:hover {
+      transform: scale(1.07);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      margin-top: 50px;
+      font-size: 1rem;
+      background: #ffe6f2;
+      border-top: 2px solid #ff69b4;
+      font-weight: bold;
+    }
+
+    /* Corazones flotantes */
+    .corazones {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .corazon {
+      position: absolute;
+      bottom: -50px;
+      color: #ff69b4;
+      font-size: 28px;
+      animation: flotar linear infinite;
+      opacity: 0.8;
+    }
+    @keyframes flotar {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+
+    /* Texto máquina de escribir */
+    .typewriter {
+      text-align: center;
+      font-size: 1.3rem;
+      margin: 30px auto;
+      max-width: 90%;
+      border-right: 3px solid #ff69b4;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 6s steps(60) 1s forwards, blink 0.7s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: #ff69b4; }
+    }
+
+    /* 📱 Responsividad */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      header p { font-size: 1rem; }
+      .pregunta h2 { font-size: 1.4rem; }
+      .btn { font-size: 0.9rem; padding: 10px 15px; }
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 30px 15px; }
+      header h1 { font-size: 1.6rem; }
+      .typewriter { font-size: 1rem; }
+      .frase-card { font-size: 1rem; padding: 15px; }
+      .pregunta h2 { font-size: 1.2rem; }
+    }
+
+    /* ❤️ Botón flotante */
+    .btn-flotante {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff1493;
+      color: white;
+      font-size: 2rem;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: latido 1.5s infinite;
+    }
+    @keyframes latido {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* 🌹 Modal romántico */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-contenido {
+      background: #fff0f6;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      animation: aparecer 0.5s ease;
+    }
+    .modal-contenido h3 {
+      color: #ff1493;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+    .modal-contenido p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .cerrar {
+      background: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .cerrar:hover {
+      background: #ff1493;
+    }
+    @keyframes aparecer {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* 🎉 Confeti */
+    .confeti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: red;
+      top: -10px;
+      animation: caer 3s linear forwards;
+      z-index: 2000;
+    }
+    @keyframes caer {
+      to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Corazones flotantes -->
+  <div class="corazones">
+    <div class="corazon" style="left:15%; animation-duration: 25s;">💖</div>
+    <div class="corazon" style="left:30%; animation-duration: 12s;">💕</div>
+    <div class="corazon" style="left:50%; animation-duration: 8s;">💘</div>
+    <div class="corazon" style="left:70%; animation-duration: 14s;">💞</div>
+    <div class="corazon" style="left:90%; animation-duration: 11s;">💓</div>
+  </div>
+
+  <!-- Encabezado -->
+  <header>
+    <h1>💖 Para la dueña de mi corazón 💖</h1>
+    <p>Una página creada con todo mi amor, solo para ti ✨</p>
+  </header>
+
+  <!-- Texto máquina de escribir -->
+  <div class="typewriter">Eres mi presente, mi futuro y el motivo más bonito de mis sonrisas. 🌹</div>
+
+  <!-- Presentación -->
+  <section class="presentacion">
+    <img src="1.jpg" alt="Pareja enamorada">
+    <p>
+      Desde que llegaste a mi vida todo cambió.  
+      Eres mi inspiración, mi alegría y mi sueño más bonito.  
+      Hoy quiero dar un paso más y hacerte una pregunta muy especial...
+    </p>
+  </section>
+
+  <!-- Frases románticas -->
+  <section class="frases">
+    <h2>Frases que expresan lo que siento por ti💞</h2>
+    <div class="frase-card">💘 "Eres mi casualidad más bonita y mi destino favorito."</div>
+    <div class="frase-card">🌸 "Si me dieran a elegir entre mil vidas, en todas te volvería a buscar."</div>
+    <div class="frase-card">💞 "Tú eres mi hogar, sin importar el lugar."</div>
+    <div class="frase-card">🌹 "No necesito nada más si estás tú conmigo, eres tú o nadie más."</div>
+  </section>
+
+  <!-- La gran pregunta -->
+  <section class="pregunta">
+    <h2>Entonces... ¿Aceptas ser mi enamorada? 💕</h2>
+    <div class="botones">
+      <button class="btn" onclick="mostrarRespuesta('¡Sabía que dirías que sí! 💖✨')">💖 Sí, quiero 💖</button>
+      <button class="btn secundario" onclick="mostrarRespuesta('¡Me haces la persona más feliz del mundo! 🌸💕')">✨ Claro que sí ✨</button>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="galeria">
+    <h2>Nuestros recuerdos más bonitos 📸</h2>
+    <div class="imagenes">
+      <img src="2.jpg" alt="Corazón">
+      <img src="3.jpg" alt="Pareja">
+      <img src="4.jpg" alt="Rosas">
+    </div>
+  </section>
+
+  <!-- Pie -->
+  <footer>
+    <p>Hecho con todo mi amor, solo para ti 💕 — Espero tu respuesta con el corazón latiendo fuerte por ti 💓</p>
+  </footer>
+
+  <!-- ❤️ Botón flotante -->
+  <button class="btn-flotante" onclick="abrirModal()">❤️</button>
+
+  <!-- 🌹 Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-contenido">
+      <h3>💖 Mi amor 💖</h3>
+      <p id="fraseModal"></p>
+      <button class="cerrar" onclick="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- 🌹 Modal Respuesta -->
+  <div id="modalRespuesta" class="modal">
+    <div class="modal-contenido">
+      <h3>💞 Tu respuesta 💞</h3>
+      <p id="mensajeRespuesta"></p>
+      <button class="cerrar" onclick="cerrarModalRespuesta()">Cerrar</button>
+    </div>
+  </div>
+
+  <script>
+    // Frases románticas para el modal
+    const frases = [
+      "No importa cuántos días pasen... cada latido mío será siempre por ti 💓✨",
+      "Eres la razón por la que mi mundo tiene más colores 🌈💕",
+      "Desde que llegaste, mis noches son más dulces y mis días más brillantes 🌞💖",
+      "Amarte sera lo más bonito que me va pasar en la vida 🌸💞",
+      "Mi felicidad comienza con tu nombre 💕✨",
+      "No sé qué hice para merecerte, pero gracias por ser mi todo 🌹💖",
+      "Eres mi lugar favorito, mi paz y mi alegría 🌷💘"
+    ];
+
+    function abrirModal() {
+      const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+      document.getElementById("fraseModal").innerText = fraseAleatoria;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function cerrarModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    function mostrarRespuesta(mensaje) {
+      document.getElementById("mensajeRespuesta").innerText = mensaje;
+      document.getElementById("modalRespuesta").style.display = "flex";
+      lanzarConfeti();
+    }
+
+    function cerrarModalRespuesta() {
+      document.getElementById("modalRespuesta").style.display = "none";
+    }
+
+    // 🎉 Confeti animado
+    function lanzarConfeti() {
+      for (let i = 0; i < 50; i++) {
+        let confeti = document.createElement("div");
+        confeti.classList.add("confeti");
+        document.body.appendChild(confeti);
+
+        let colores = ["#ff69b4", "#ff1493", "#ffb6c1", "#fff0f6", "#ff85c1"];
+        confeti.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+        confeti.style.left = Math.random() * window.innerWidth + "px";
+        confeti.style.top = "-10px";
+        confeti.style.width = confeti.style.height = Math.random() * 8 + 5 + "px";
+        confeti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+        setTimeout(() => { confeti.remove(); }, 3000);
+      }
+    }
+  </script>
+</body>
+</html>
